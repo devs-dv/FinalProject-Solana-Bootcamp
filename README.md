@@ -78,7 +78,10 @@ Comprehensive TypeScript tests have been implemented to ensure the contract's fu
 
 
 ## Screenshots
+![image](https://github.com/devs-dv/FinalProject-Solana-Bootcamp/assets/125279009/8b430114-7da4-4357-ba81-e33a0e29617f)
+
 ![image](https://github.com/devs-dv/FinalProject-Solana-Bootcamp/assets/125279009/b7172e2b-4d22-453b-a1dc-13306b5ede4c)
+
 ![image](https://github.com/devs-dv/FinalProject-Solana-Bootcamp/assets/125279009/3371421f-ff55-4ae9-b7ac-c038f678577c)
 
 
