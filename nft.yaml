@@ -1,0 +1,72 @@
+cidl: "0.8"
+info:
+  name: nft
+  title: devs-dv
+  version: 1.0.0
+  license:
+    name: MIT License
+    identifier: MIT
+types:
+  YourNFT:
+    solana:
+      seeds:
+        - name: "nft"
+        - name: mint
+          type: sol:pubkey
+    fields:
+      - name: name
+        type: string
+        solana:
+          attributes: [ cap:64 ]
+      - name: description
+        type: string
+        solana:
+          attributes: [ cap:255 ]
+      - name: creator
+        type: sol:pubkey
+      - name: owner
+        type: sol:pubkey
+methods:
+  - name: mint
+    uses:
+      - csl_spl_token.initialize_mint
+      - csl_spl_token.mint_to
+    inputs:
+      - name: mint
+        type: csl_spl_token.Mint
+        solana:
+          attributes: [ init ]
+      - name: nft
+        type: YourNFT
+        solana:
+          attributes: [ init ]
+          seeds:
+            mint: mint
+      - name: name
+        type: string
+      - name: description
+        type: string
+  - name: transfer
+    uses:
+      - csl_spl_token.transfer_checked
+    inputs:
+      - name: mint
+        type: csl_spl_token.Mint
+      - name: nft
+        type: YourNFT
+        solana:
+          attributes: [ mut ]
+          seeds:
+            mint: mint
+  - name: burn
+    uses:
+      - csl_spl_token.burn
+    inputs:
+      - name: mint
+        type: csl_spl_token.Mint
+      - name: nft
+        type: YourNFT
+        solana:
+          attributes: [ mut ]
+          seeds:
+            mint: mint
